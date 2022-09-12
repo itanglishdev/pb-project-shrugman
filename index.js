@@ -104,7 +104,7 @@ function askForTheLetter() {
     if (filmPicked[i].toLowerCase() === letter) {
 
       outcomeArray[i] = letter
-    }
+    } shrugMan()
   }
   console.clear()
   console.log("\n" + 'HERE', outcomeArray.join(" "));
@@ -113,3 +113,20 @@ function askForTheLetter() {
 }
 
 askForTheLetter()
+
+const shrugManLogo = "¯\_(:/)_/¯"
+const shrugManLogoArray = shrugManLogo.split('')
+const outcomeArrayShrugMan = []
+let shrugManLogoString = ""
+let counter = outcomeArrayShrugMan.length
+
+function shrugMan() {
+  console.clear()
+  console.log("\n" + 'HERE', outcomeArray.join(" "));
+  console.log(outcomeArrayShrugMan.push(shrugManLogoArray[counter]).join());
+  if (counter === ) {
+
+  } else {
+
+  }
+}
