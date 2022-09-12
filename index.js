@@ -1,7 +1,10 @@
 // const prompt = require('prompt-sync')({ sigint: true });
 // const { log } = require('forever');
 // const { clear } = require('forever/lib/forever/cli');
-// const readline = require('readline-sync');
+const readline = require('readline-sync');
+
+// const readline = require("readline");
+const { list } = require('forever');
 
 class GuessingGame {
 
@@ -30,7 +33,7 @@ class SecretWordOrPhraseManager {
 
   addToTheList(...item) {
 
-    this.list.push(item)
+    this.list.push(...item)
   }
 
   removeFromTheList(item) {
@@ -78,4 +81,25 @@ const filmGuessManager = new SecretWordOrPhraseManager(filmGuess.list)
 
 filmGuessManager.addToTheList(starWars, apple, braveHeart, godFather, mind, thor, mission, shawShank, batmanDark, schindler, pulp, lord, forrest, fight, inc, empire, the, good, silence, city, newHope)
 
-console.log(filmGuess.list);
+// console.log(filmGuess.list.length);
+// console.log('HERE', Math.floor(Math.random() * filmGuess.list.length));
+// console.log(Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]));
+
+
+
+// ----------------------ADDING NODE READLINE-------------------
+
+console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
+
+let filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))
+// let filmPickedArray = filmPicked.split("")
+console.log("HERE", filmPicked);
+
+function askForTheLetter(insertedLetter) {
+
+
+  const letter = readline.question('\n     Type a letter    ')
+
+
+
+}
