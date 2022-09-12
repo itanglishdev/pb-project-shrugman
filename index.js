@@ -5,6 +5,7 @@ const readline = require('readline-sync');
 
 // const readline = require("readline");
 const { list } = require('forever');
+const { clear } = require('forever/lib/forever/cli');
 
 class GuessingGame {
 
@@ -88,8 +89,13 @@ filmGuessManager.addToTheList(starWars, apple, braveHeart, godFather, mind, thor
 
 
 // ----------------------ADDING NODE READLINE-------------------
+letsStart()
 
-console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
+function letsStart() {
+  console.clear()
+  console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
+
+}
 
 let filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].split('')
 // let filmPickedArray = filmPicked.split("")
@@ -119,14 +125,23 @@ const shrugManLogoArray = shrugManLogo.split('')
 const outcomeArrayShrugMan = []
 let shrugManLogoString = ""
 let counter = outcomeArrayShrugMan.length
+let maxLimit = shrugManLogoArray.length
 
 function shrugMan() {
   console.clear()
   console.log("\n" + 'HERE', outcomeArray.join(" "));
   console.log(outcomeArrayShrugMan.push(shrugManLogoArray[counter]).join());
-  if (counter === ) {
-
+  if (counter === maxLimit) {
+    return finalFunction()
   } else {
 
+  }
+}
+
+function finalFunction() {
+  console.log('SORRY, you\'ve LOST');
+  let endOfGame = readline.question(', Fancy another round?')
+  if (endOfGame === y) {
+    letsStart()
   }
 }
