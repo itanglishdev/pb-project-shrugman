@@ -58,7 +58,7 @@ const mind = new SecretWordOrPhrase('A beautiful mind')
 const thor = new SecretWordOrPhrase('Thor Love and Thunder')
 const mission = new SecretWordOrPhrase('Mission Impossible Fallout')
 const shawShank = new SecretWordOrPhrase('The Shawshank Redemption')
-const batmanDark = new SecretWordOrPhrase('Batman The Dark Night')
+const batmanDark = new SecretWordOrPhrase('Batman The Dark Knight')
 const schindler = new SecretWordOrPhrase('Schindler\'s list')
 const pulp = new SecretWordOrPhrase('Pulp Fiction')
 const lord = new SecretWordOrPhrase('The Lord of the Rings: The Fellowship of the Ring')
@@ -84,22 +84,32 @@ filmGuessManager.addToTheList(starWars, apple, braveHeart, godFather, mind, thor
 // console.log(filmGuess.list.length);
 // console.log('HERE', Math.floor(Math.random() * filmGuess.list.length));
 // console.log(Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]));
-
+// console.log((Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].split(''));
 
 
 // ----------------------ADDING NODE READLINE-------------------
 
 console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
 
-let filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))
+let filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].split('')
 // let filmPickedArray = filmPicked.split("")
-console.log("HERE", filmPicked);
+const outcomeArray = Array(filmPicked.length).fill("_")
+console.log("HERE", filmPicked, outcomeArray);
 
-function askForTheLetter(insertedLetter) {
+function askForTheLetter() {
 
+  let letter = readline.question('\n     Type a letter    ')
 
-  const letter = readline.question('\n     Type a letter    ')
+  for (i = 0; i < filmPicked.length; i++) {
+    if (filmPicked[i].toLowerCase() === letter) {
 
-
-
+      outcomeArray[i] = letter
+    }
+  }
+  console.clear()
+  console.log("\n" + 'HERE', outcomeArray.join(" "));
+  askForTheLetter()
+  // console.clear()
 }
+
+askForTheLetter()
