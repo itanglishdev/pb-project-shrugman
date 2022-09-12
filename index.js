@@ -1,5 +1,5 @@
 // const prompt = require('prompt-sync')({ sigint: true });
-
+const readline = require('readline-sync');
 
 class GuessingGame {
 
@@ -35,3 +35,5 @@ class SecretWordOrPhraseManager {
     this.list = this.list.filter(el => el !== item)
   }
 }
+
+
