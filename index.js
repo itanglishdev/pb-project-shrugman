@@ -22,12 +22,13 @@ class SecretWordOrPhrase {
 
 class SecretWordOrPhraseManager {
 
-  constructor(item) {
+  constructor(list) {
 
-    this.item = item
+
+    this.list = list
   }
 
-  addToTheList(item) {
+  addToTheList(...item) {
 
     this.list.push(item)
   }
@@ -41,7 +42,7 @@ class SecretWordOrPhraseManager {
 
 
 //       CREATED NEW GAME 
-const shrugMan = new GuessingGame()
+const filmGuess = new GuessingGame()
 
 
 //       ADDING NEW SECRET PHRASES/WORDS
@@ -55,7 +56,7 @@ const thor = new SecretWordOrPhrase('Thor Love and Thunder')
 const mission = new SecretWordOrPhrase('Mission Impossible Fallout')
 const shawShank = new SecretWordOrPhrase('The Shawshank Redemption')
 const batmanDark = new SecretWordOrPhrase('Batman The Dark Night')
-const shindler = new SecretWordOrPhrase('Schindler\'s list')
+const schindler = new SecretWordOrPhrase('Schindler\'s list')
 const pulp = new SecretWordOrPhrase('Pulp Fiction')
 const lord = new SecretWordOrPhrase('The Lord of the Rings: The Fellowship of the Ring')
 const forrest = new SecretWordOrPhrase('Forrest Gump')
@@ -68,3 +69,13 @@ const silence = new SecretWordOrPhrase('The Silence of the Lambs')
 const city = new SecretWordOrPhrase('City of God')
 const newHope = new SecretWordOrPhrase('Star Wars: Episode IV - A New Hope')
 
+
+//     CREATE  
+
+//     ADDING ITEMS TO THE LIST
+
+const filmGuessManager = new SecretWordOrPhraseManager(filmGuess.list)
+
+filmGuessManager.addToTheList(starWars, apple, braveHeart, godFather, mind, thor, mission, shawShank, batmanDark, schindler, pulp, lord, forrest, fight, inc, empire, the, good, silence, city, newHope)
+
+console.log(filmGuess.list);
