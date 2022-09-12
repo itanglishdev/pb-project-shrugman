@@ -24,4 +24,14 @@ class SecretWordOrPhraseManager {
 
     this.item = item
   }
+
+  addToTheList(item) {
+
+    this.list.push(item)
+  }
+
+  removeFromTheList(item) {
+
+    this.list = this.list.filter(el => el !== item)
+  }
 }
