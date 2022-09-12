@@ -12,6 +12,14 @@ class GuessingGame {
 
 class SecretWordOrPhrase {
 
+  constructor(wordOrPhrase) {
+
+    this.wordOrPhrase = wordOrPhrase
+  }
+}
+
+class SecretWordOrPhraseManager {
+
   constructor(item) {
 
     this.item = item
