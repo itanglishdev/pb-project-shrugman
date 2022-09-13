@@ -118,27 +118,38 @@ letsStart()
 
 function askForTheLetter() {
 
-  if (shrugManLogoString.length < shrugManLogoArray.length) {
+  if (counter !== 11) {
 
     let letter = readline.question('\n     Type a letter    ')
 
-    for (i = 0; i < filmPicked.length; i++) {
-      if (filmPicked[i] == letter.toLowerCase() || filmPicked[i] == letter.toUpperCase()) {
+    if (filmPicked.includes(letter)) {
+      for (i = 0; i < filmPicked.length; i++) {
+        if (filmPicked[i] === letter.toLowerCase() || filmPicked[i] === letter.toUpperCase()) {
 
-        // counter++
-        outcomeArray[i] = letter
+          // counter++
+          outcomeArray[i] = letter
 
-      } else {
-
-        shrugManLogoString += shrugManLogoArray[counter]
-        counter++
+        }
+        console.clear()
+        // askForTheLetter()
       }
+      console.log("\n" + 'HERE  ==>', outcomeArray.join(" "));
+      console.log('\n', 'shrugman OUTPUT', shrugManLogoString)
+      // askForTheLetter()
 
+    } else {
+
+      shrugManLogoString += shrugManLogoArray[counter]
+      counter++
+      // askForTheLetter()
     }
-    console.log("\n" + 'HERE  ==>', outcomeArray.join(" "));
-    console.log('\n', 'shrugman OUTPUT', shrugManLogoString)
-    // console.log("HERE", filmPicked, outcomeArray);
-    // counter++
+
+
+    // if (filmPicked[i] !== letter.toLowerCase() || filmPicked[i] !== letter.toUpperCase()) {
+    //   // console.log("HERE", filmPicked, outcomeArray);
+    //   shrugManLogoString += shrugManLogoArray[counter]
+    //   counter++
+    //   askForTheLetter()
     askForTheLetter()
 
   } else {
