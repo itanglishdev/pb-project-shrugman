@@ -91,30 +91,36 @@ filmGuessManager.addToTheList(starWars, apple, braveHeart, godFather, mind, thor
 // ----------------------ADDING NODE READLINE-------------------
 
 
-function letsStart() {
-  console.clear()
-  console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
-  for (i = 0; i < filmPicked.length; i++) {
-    if (filmPicked[i] === " ") {
-
-      outcomeArray[i] = " "
-    }
-    console.log("HERE", filmPicked, outcomeArray);
-
-    askForTheLetter()
-  }
-}
-// let filmPickedArray = filmPicked.split("")
-
-const filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].toLowerCase().split('')
 const shrugManLogoArray = ['¯', "\\", '_', "(", ":", " ", '/', ')', '_', '/', '¯']
 
 let shrugManLogoString = ""
 let counter = 0
-const outcomeArray = Array(filmPicked.length).fill("_")
+const filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].toLowerCase().split('')
+const outcomeArray = Array(filmPicked.length).fill(" ")
 
+function letsStart() {
+  console.clear()
+  console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
+  // for (i = 0; i < filmPicked.length; i++) {
+  //   if (filmPicked[i] === " ") {
 
-letsStart()
+  //     outcomeArray[i] = " "
+  //   }
+  console.log("HERE", filmPicked, outcomeArray);
+
+  // emptySpaces()
+  askForTheLetter()
+}
+
+// function emptySpaces() {
+//   for (i = 0; i < filmPicked.length; i++) {
+//     if (filmPicked[i] === " ") {
+
+//       outcomeArray[i] = " "
+//     }
+//   }
+// }
+
 
 
 function askForTheLetter() {
@@ -156,26 +162,29 @@ function askForTheLetter() {
       askForTheLetter()
 
     } else {
-      finalFunction()
+      console.log('SORRY, you\'ve LOST');
+      const endOfGame = readline.question('\n' + ' Fancy another round? (y or n)?   ')
+      if (endOfGame == 'y') {
+        letsStart()
+      } return 'Ciao!';
     }
-  } winning()
-
-
-}
-
-
-function finalFunction() {
-  console.log('SORRY, you\'ve LOST');
-  const endOfGame = readline.question('\n' + ' Fancy another round? (y or n)?   ')
-  if (endOfGame == 'y') {
-    letsStart()
-  } return 'Ciao!';
-}
-
-function winning() {
-
-  console.log('Well done, you guessed it!');
+  } console.log('Well done, you guessed it!');
   const endOfGameWin = readline.question('\n' + ' Fancy another round? (y or n)?   ')
-  if (endOfGameWin === 'y')
+  if (endOfGameWin === 'y') {
     letsStart()
+  } else {
+    return 0
+  }
+
+  return 0
 }
+
+letsStart()
+    //   console.log('SORRY, you\'ve LOST');
+    //   const endOfGame = readline.question('\n' + ' Fancy another round? (y or n)?   ')
+    //   if (endOfGame == 'y') {
+    //     letsStart()
+    //   } return 'Ciao!';
+    // }
+    // function winning() {
+    // }
