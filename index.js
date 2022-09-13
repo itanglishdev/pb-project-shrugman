@@ -105,7 +105,7 @@ function letsStart() {
 
 
 }
-const filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].split('')
+const filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].toLowerCase().split('')
 const shrugManLogoArray = ['¯', "\\", '_', "(", ":", " ", '/', ')', '_', '/', '¯']
 const outcomeArrayShrugMan = []
 let shrugManLogoString = ""
@@ -125,7 +125,7 @@ function askForTheLetter() {
     if (filmPicked.includes(letter)) {
 
       for (i = 0; i < filmPicked.length; i++) {
-        if (filmPicked[i].toLowerCase() === letter || filmPicked[i].toUpperCase() === letter) {
+        if (filmPicked[i] === letter) {
 
           outcomeArray[i] = letter
         }
@@ -134,16 +134,16 @@ function askForTheLetter() {
         // askForTheLetter()
       }
       console.log("\n" + 'HERE  ==>', outcomeArray.join(" "));
-      console.log('\n', 'shrugman OUTPUT', shrugManLogoString)
+      console.log("\x1b[5m", '\n', '           ', "\x1b[33m", shrugManLogoString, "\x1b[0m")
       // askForTheLetter()
 
       // console.log("HERE", filmPicked, outcomeArray);
       //   shrugManLogoString += shrugManLogoArray[counter]
     } else {
       console.clear()
-      console.log("\n" + 'HERE  ==>', outcomeArray.join(" "));
+      console.log("\n" + '  ==>  ', outcomeArray.join(" "));
       shrugManLogoString += shrugManLogoArray[counter]
-      console.log('\n', 'shrugman OUTPUT', shrugManLogoString)
+      console.log('\n', 'shrugman OUTPUT', "\x1b[33m", "\x1b[5m", shrugManLogoString, "\x1b[0m")
       counter++
       // askForTheLetter()
     }
@@ -158,8 +158,8 @@ function askForTheLetter() {
 
 function finalFunction() {
   console.log('SORRY, you\'ve LOST');
-  let endOfGame = readline.question(', Fancy another round? (y or n)?   ')
-  if (endOfGame === y) {
+  const endOfGame = readline.question(', Fancy another round? (y or n)?   ')
+  if (endOfGame == y) {
     letsStart()
   } return 'Ciao!';
 }
