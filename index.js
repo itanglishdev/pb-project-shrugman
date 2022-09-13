@@ -94,23 +94,19 @@ filmGuessManager.addToTheList(starWars, apple, braveHeart, godFather, mind, thor
 function letsStart() {
   console.clear()
   console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
-  // let counter = 0
   // let filmPickedArray = filmPicked.split("")
-  console.log("HERE", filmPicked, outcomeArray);
-  // const shrugManLogo = "¯\_(:/)_/¯"
-
+  // console.log("HERE", filmPicked, outcomeArray);
 
   askForTheLetter()
-
-
-
 }
+
 const filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].toLowerCase().split('')
 const shrugManLogoArray = ['¯', "\\", '_', "(", ":", " ", '/', ')', '_', '/', '¯']
 
 let shrugManLogoString = ""
 let counter = 0
 const outcomeArray = Array(filmPicked.length).fill("_")
+
 letsStart()
 
 
@@ -132,7 +128,7 @@ function askForTheLetter() {
           console.clear()
           // askForTheLetter()
         }
-        console.log("\n" + 'HERE  ==>', outcomeArray.join(" "));
+        console.log("\n" + '         ', outcomeArray.join(" "));
         console.log("\x1b[5m", '\n', '           ', "\x1b[33m", shrugManLogoString, "\x1b[0m")
         // askForTheLetter()
 
@@ -142,7 +138,7 @@ function askForTheLetter() {
         console.clear()
         console.log("\n" + '  ==>  ', outcomeArray.join(" "));
         shrugManLogoString += shrugManLogoArray[counter]
-        console.log('\n', 'shrugman OUTPUT', "\x1b[33m", "\x1b[5m", shrugManLogoString, "\x1b[0m")
+        console.log('\n', '           ', "\x1b[33m", "\x1b[5m", shrugManLogoString, "\x1b[0m")
         counter++
         // askForTheLetter()
       }
