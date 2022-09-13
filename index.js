@@ -120,12 +120,9 @@ function askForTheLetter() {
 
   if (shrugManLogoString.length < shrugManLogoArray.length) {
 
-    // askForTheLetter()
-
-
     let letter = readline.question('\n     Type a letter    ')
 
-    for (i = 0; i <= filmPicked.length; i++) {
+    for (i = 0; i < filmPicked.length; i++) {
       if (filmPicked[i] == letter.toLowerCase() || filmPicked[i] == letter.toUpperCase()) {
 
         // counter++
@@ -143,31 +140,12 @@ function askForTheLetter() {
     // console.log("HERE", filmPicked, outcomeArray);
     // counter++
     askForTheLetter()
-    // askForTheLetter()
-
-    // console.clear()
-    // console.log("\n" + 'HERE', outcomeArray);
-
-
-    // outcomeArrayShrugMan.push()
-
-
-
-    // console.clear()
-
 
   } else {
     finalFunction()
   }
 }
-// console.clear()
-// askForTheLetter()
-// console.clear()
 
-
-// function shrugMan() {
-// }
-// shrugMan()
 
 function finalFunction() {
   console.log('SORRY, you\'ve LOST');
