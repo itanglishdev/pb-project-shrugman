@@ -90,49 +90,74 @@ filmGuessManager.addToTheList(starWars, apple, braveHeart, godFather, mind, thor
 
 // ----------------------ADDING NODE READLINE-------------------
 
+
 function letsStart() {
   console.clear()
   console.log('\n    ===== WELCOME TO THE GUESS THE FILM NAME GAME =====\n');
-
-  let filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].split('')
+  // let counter = 0
   // let filmPickedArray = filmPicked.split("")
-  const outcomeArray = Array(filmPicked.length).fill("_")
   console.log("HERE", filmPicked, outcomeArray);
   // const shrugManLogo = "¯\_(:/)_/¯"
 
+
   askForTheLetter()
 
-}
-letsStart()
 
+
+}
+const filmPicked = (Object.values(filmGuess.list[Math.floor(Math.random() * filmGuess.list.length)]))[0].split('')
 const shrugManLogoArray = ['¯', "\\", '_', "(", ":", " ", '/', ')', '_', '/', '¯']
 const outcomeArrayShrugMan = []
 let shrugManLogoString = ""
-let counter = shrugManLogoString.length
-let maxLimit = shrugManLogoArray.length
+// let counter = shrugManLogoString.length
+let counter = 0
+// let maxLimit = shrugManLogoArray.length
+const outcomeArray = Array(filmPicked.length).fill("_")
+letsStart()
+
 
 function askForTheLetter() {
 
-  let letter = readline.question('\n     Type a letter    ')
+  if (shrugManLogoString.length < shrugManLogoArray.length) {
 
-  for (i = 0; i < filmPicked.length; i++) {
-    if (filmPicked[i].toLowerCase() === letter) {
+    // askForTheLetter()
 
-      outcomeArray[i] = letter
-      // askForTheLetter()
-    } else {
-      console.clear()
-      console.log("\n" + 'HERE', outcomeArray.join(" "));
-      shrugManLogoString += shrugManLogoArray[counter]
-      // outcomeArrayShrugMan.push()
 
-      if (counter === maxLimit) {
-        finalFunction()
+    let letter = readline.question('\n     Type a letter    ')
+
+    for (i = 0; i <= filmPicked.length; i++) {
+      if (filmPicked[i] == letter.toLowerCase() || filmPicked[i] == letter.toUpperCase()) {
+
+        // counter++
+        outcomeArray[i] = letter
+
+      } else {
+
+        shrugManLogoString += shrugManLogoArray[counter]
+        counter++
       }
+
     }
-    console.log("\n" + 'HERE', outcomeArray.join(" "));
-    console.log('\n', shrugManLogoString)
+    console.log("\n" + 'HERE  ==>', outcomeArray.join(" "));
+    console.log('\n', 'shrugman OUTPUT', shrugManLogoString)
+    // console.log("HERE", filmPicked, outcomeArray);
+    // counter++
     askForTheLetter()
+    // askForTheLetter()
+
+    // console.clear()
+    // console.log("\n" + 'HERE', outcomeArray);
+
+
+    // outcomeArrayShrugMan.push()
+
+
+
+    // console.clear()
+
+
+  } else {
+    finalFunction()
   }
 }
 // console.clear()
