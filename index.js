@@ -51,7 +51,7 @@ const filmGuess = new GuessingGame()
 
 //       ADDING NEW SECRET PHRASES/WORDS
 
-const starWars = new SecretWordOrPhrase('Star Wars: Episode VI -Return of the Jedi')
+const starWars = new SecretWordOrPhrase('Star Wars Episode VI  Return of the Jedi')
 const apple = new SecretWordOrPhrase('An apple a day keeps the doctor away')
 const braveHeart = new SecretWordOrPhrase('Braveheart')
 const godFather = new SecretWordOrPhrase('The Godfather')
@@ -62,16 +62,16 @@ const shawShank = new SecretWordOrPhrase('The Shawshank Redemption')
 const batmanDark = new SecretWordOrPhrase('Batman The Dark Knight')
 const schindler = new SecretWordOrPhrase('Schindler\'s list')
 const pulp = new SecretWordOrPhrase('Pulp Fiction')
-const lord = new SecretWordOrPhrase('The Lord of the Rings: The Fellowship of the Ring')
+const lord = new SecretWordOrPhrase('The Lord of the Rings The Fellowship of the Ring')
 const forrest = new SecretWordOrPhrase('Forrest Gump')
 const fight = new SecretWordOrPhrase('Fight Club')
 const inc = new SecretWordOrPhrase('Inception')
-const empire = new SecretWordOrPhrase('Star Wars: Episode V - The Empire Strikes Back')
+const empire = new SecretWordOrPhrase('Star Wars Episode V  The Empire Strikes Back')
 const the = new SecretWordOrPhrase('The Matrix')
 const good = new SecretWordOrPhrase('Goodfellas')
 const silence = new SecretWordOrPhrase('The Silence of the Lambs')
 const city = new SecretWordOrPhrase('City of God')
-const newHope = new SecretWordOrPhrase('Star Wars: Episode IV - A New Hope')
+const newHope = new SecretWordOrPhrase('Star Wars Episode IV  A New Hope')
 
 
 //     CREATE  
@@ -107,66 +107,71 @@ let shrugManLogoString = ""
 let counter = 0
 const outcomeArray = Array(filmPicked.length).fill("_")
 
-letsStart()
+for (i = 0; i < filmPicked.length; i++) {
+  if (filmPicked[i] === " ") {
+
+    outcomeArray[i] = " "
+  }
+  letsStart()
 
 
-function askForTheLetter() {
-  if (JSON.stringify(outcomeArray) !== JSON.stringify(filmPicked)) {
+  function askForTheLetter() {
+    if (JSON.stringify(outcomeArray) !== JSON.stringify(filmPicked)) {
 
-    if (counter !== 11) {
+      if (counter !== 11) {
 
-      let letter = readline.question('\n     Type a letter    ')
+        let letter = readline.question('\n     Type a letter    ')
 
-      if (filmPicked.includes(letter)) {
+        if (filmPicked.includes(letter)) {
 
-        for (i = 0; i < filmPicked.length; i++) {
-          if (filmPicked[i] === letter) {
+          for (i = 0; i < filmPicked.length; i++) {
+            if (filmPicked[i] === letter) {
 
-            outcomeArray[i] = letter
+              outcomeArray[i] = letter
+            }
+
+            console.clear()
+            // askForTheLetter()
           }
+          console.log("\n" + '         ', outcomeArray.join(" "));
+          console.log("\x1b[5m", '\n', '           ', "\x1b[33m", shrugManLogoString, "\x1b[0m")
+          // askForTheLetter()
 
+          // console.log("HERE", filmPicked, outcomeArray);
+          //   shrugManLogoString += shrugManLogoArray[counter]
+        } else {
           console.clear()
+          console.log("\n" + '  ==>  ', outcomeArray.join(" "));
+          shrugManLogoString += shrugManLogoArray[counter]
+          console.log('\n', '           ', "\x1b[33m", "\x1b[5m", shrugManLogoString, "\x1b[0m")
+          counter++
           // askForTheLetter()
         }
-        console.log("\n" + '         ', outcomeArray.join(" "));
-        console.log("\x1b[5m", '\n', '           ', "\x1b[33m", shrugManLogoString, "\x1b[0m")
-        // askForTheLetter()
 
-        // console.log("HERE", filmPicked, outcomeArray);
-        //   shrugManLogoString += shrugManLogoArray[counter]
+        askForTheLetter()
+
       } else {
-        console.clear()
-        console.log("\n" + '  ==>  ', outcomeArray.join(" "));
-        shrugManLogoString += shrugManLogoArray[counter]
-        console.log('\n', '           ', "\x1b[33m", "\x1b[5m", shrugManLogoString, "\x1b[0m")
-        counter++
-        // askForTheLetter()
+        finalFunction()
       }
-
-      askForTheLetter()
-
-    } else {
-      finalFunction()
-    }
-  } winning()
+    } winning()
 
 
-}
-
-
-function finalFunction() {
-  console.log('SORRY, you\'ve LOST');
-  const endOfGame = readline.question(', Fancy another round? (y or n)?   ')
-  if (endOfGame == y) {
-    letsStart()
-  } return 'Ciao!';
-}
-
-function winning() {
-
-  console.log('Well done, you guessed it!');
-  const endOfGameWin = readline.question(', Fancy another round? (y or n)?   ')
-  if (endOfGameWin == y) {
-    letsStart()
   }
-}
+
+
+  function finalFunction() {
+    console.log('SORRY, you\'ve LOST');
+    const endOfGame = readline.question(', Fancy another round? (y or n)?   ')
+    if (endOfGame == y) {
+      letsStart()
+    } return 'Ciao!';
+  }
+
+  function winning() {
+
+    console.log('Well done, you guessed it!');
+    const endOfGameWin = readline.question(', Fancy another round? (y or n)?   ')
+    if (endOfGameWin == y) {
+      letsStart()
+    }
+  }
