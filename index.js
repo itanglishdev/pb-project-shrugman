@@ -99,18 +99,17 @@ function letsStart() {
   const outcomeArray = Array(filmPicked.length).fill("_")
   console.log("HERE", filmPicked, outcomeArray);
   // const shrugManLogo = "¯\_(:/)_/¯"
-  const shrugManLogoArray = ['¯', "\\", '_', "(", ":", " ", '/', ')', '_', '/', '¯']
-
-  const outcomeArrayShrugMan = []
-  let shrugManLogoString = ""
-  let counter = shrugManLogoString.length
-  let maxLimit = shrugManLogoArray.length
 
   askForTheLetter()
 
 }
 letsStart()
 
+const shrugManLogoArray = ['¯', "\\", '_', "(", ":", " ", '/', ')', '_', '/', '¯']
+const outcomeArrayShrugMan = []
+let shrugManLogoString = ""
+let counter = shrugManLogoString.length
+let maxLimit = shrugManLogoArray.length
 
 function askForTheLetter() {
 
@@ -126,20 +125,20 @@ function askForTheLetter() {
       console.log("\n" + 'HERE', outcomeArray.join(" "));
       shrugManLogoString += shrugManLogoArray[counter]
       // outcomeArrayShrugMan.push()
-      console.log('\n', shrugManLogoString)
 
       if (counter === maxLimit) {
         finalFunction()
-      } else {
-        askForTheLetter()
       }
     }
     console.log("\n" + 'HERE', outcomeArray.join(" "));
+    console.log('\n', shrugManLogoString)
+    askForTheLetter()
   }
-  // console.clear()
-  // askForTheLetter()
-  // console.clear()
 }
+// console.clear()
+// askForTheLetter()
+// console.clear()
+
 
 // function shrugMan() {
 // }
@@ -150,5 +149,5 @@ function finalFunction() {
   let endOfGame = readline.question(', Fancy another round? (y or n)?   ')
   if (endOfGame === y) {
     letsStart()
-  } console.log('Ciao!');
+  } return 'Ciao!';
 }
