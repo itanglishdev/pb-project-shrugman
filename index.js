@@ -115,7 +115,7 @@ letsStart()
 
 
 function askForTheLetter() {
-  if (outcomeArray.JSON.stringify !== filmPicked.JSON.stringify) {
+  if (JSON.stringify(outcomeArray) !== JSON.stringify(filmPicked)) {
 
     if (counter !== 11) {
 
